@@ -20,7 +20,7 @@ Yocto recipes to introduce UnifiedHMI software.
 
 
 ## How to build
-This guide explains how to run RVGPU on the agl-demo-platform and core-image-weston as a sender or receiver.Therefore, this guide will cover the build methods for both agl-demo-platform and core-image-weston.  
+This guide explains how to run RVGPU on the agl-demo-platform and agl-image-weston as a sender or receiver.Therefore, this guide will cover the build methods for both agl-demo-platform and agl-image-weston.  
 Please follow the [AGL documentation](https://docs.automotivelinux.org/en/master/#01_Getting_Started/02_Building_AGL_Image/01_Build_Process_Overview/) for the build process, and set up the "[Initializing Your Build Environment](https://docs.automotivelinux.org/en/master/#01_Getting_Started/02_Building_AGL_Image/04_Initializing_Your_Build_Environment/)" section as described below to enable the AGL feature 'agl-rvgpu'.For example:
 ```
 $ cd $AGL_TOP/master
@@ -33,7 +33,7 @@ After adding the feature, to build agl-demo-platform, execute the command:
 ```
 $bitbake agl-demo-platform-uhmi
 ```
-To build core-image-weston, execute the command:
+To build agl-image-weston, execute the command:
 ```
 $bitbake agl-image-weston-uhmi
 ```
@@ -43,26 +43,26 @@ For detailed environment setup instructions for each platform, please refer to t
 [Building for Supported Renesas Boards](https://docs.automotivelinux.org/en/master/#01_Getting_Started/02_Building_AGL_Image/09_Building_for_Supported_Renesas_Boards/)
 
 ## How to run RVGPU remotely
-In this guide, we will discuss the process of transferring commands between core-image-weston and agl-demo-platform, with each platform acting as both Sender and Receiver.
+In this guide, we will discuss the process of transferring commands between agl-image-weston and agl-demo-platform, with each platform acting as both Sender and Receiver.
    
-- ### Sender: core-image-weston Receiver: agl-demo-platform
+- ### Sender: agl-image-weston Receiver: agl-demo-platform
 
 Receiver side (agl-demo-platform)
 ```
 $export XDG_RUNTIME_DIR=/run/user/1001
 $rvgpu-renderer -b 1280x720@0,0 -p 55667 &
 ```
-Sender side (core-image-weston)
+Sender side (agl-image-weston)
 ```
 $rvgpu-proxy -s 1280x720@0,0 -n 192.168.0.130:55667 &
 $export LD_LIBRARY_PATH=/usr/lib/mesa-virtio
 $weston --backend drm-backend.so --tty=2 --seat=seat_virtual -i 0 &
 ```
-After executing these steps, the weston screen launched in core-image-weston will be transferred and displayed on the agl-demo-platform via rvgpu-proxy and rvgpu-renderer. You can then launch graphical applications such as `$glmark2-es2-wayland` to verify that everything is working properly.
+After executing these steps, the weston screen launched in agl-image-weston will be transferred and displayed on the agl-demo-platform via rvgpu-proxy and rvgpu-renderer. You can then launch graphical applications such as `$glmark2-es2-wayland` to verify that everything is working properly.
 
-- ### Sender: agl-demo-platform *vs* Receiver: core-image-weston
+- ### Sender: agl-demo-platform *vs* Receiver: agl-image-weston
 
-Receiver side (core-image-weston)
+Receiver side (agl-image-weston)
 ```
 (No additional commands are necessary)
 ```
