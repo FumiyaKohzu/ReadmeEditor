@@ -13,11 +13,11 @@ $ source ./meta-agl/scripts/aglsetup.sh -f \
 ```
 After adding the feature, to build agl-demo-platform, execute the command:
 ```
-$bitbake agl-demo-platform-uhmi
+$ bitbake agl-demo-platform-uhmi
 ```
 To build agl-image-weston, execute the command:
 ```
-$bitbake agl-image-weston-uhmi
+$ bitbake agl-image-weston-uhmi
 ```
 For detailed environment setup instructions for each platform, please refer to the following link in the AGL Documentation.  
 [Building for x86(Emulation and Hardware)](https://docs.automotivelinux.org/en/master/#01_Getting_Started/02_Building_AGL_Image/07_Building_for_x86_%28Emulation_and_Hardware%29/)  
@@ -27,28 +27,27 @@ For detailed environment setup instructions for each platform, please refer to t
 ## How to run RVGPU remotely
 In this guide, we will discuss the process of transferring commands between agl-image-weston and agl-demo-platform, with each platform acting as both Sender and Receiver.
    
-- ### Sender: agl-image-weston Receiver: agl-demo-platform
+### Sender: agl-image-weston Receiver: agl-demo-platform
 
-Receiver side (agl-demo-platform)
-```
-$export XDG_RUNTIME_DIR=/run/user/1001
-$rvgpu-renderer -b 1280x720@0,0 -p 55667 &
-```
-Sender side (agl-image-weston)
-```
-$rvgpu-proxy -s 1280x720@0,0 -n 192.168.0.130:55667 &
-$export LD_LIBRARY_PATH=/usr/lib/mesa-virtio
-$weston --backend drm-backend.so --tty=2 --seat=seat_virtual -i 0 &
-```
-After executing these steps, the weston screen launched in agl-image-weston will be transferred and displayed on the agl-demo-platform via rvgpu-proxy and rvgpu-renderer. You can then launch graphical applications such as `$glmark2-es2-wayland` to verify that everything is working properly.
+- **Receiver side (agl-demo-platform)**  
+    Please use commands like 'ifconfig' to find out Receiver's IP address, which will be used to specify the sender's IP address.
 
-- ### Sender: agl-demo-platform *vs* Receiver: agl-image-weston
 
-Receiver side (agl-image-weston)
-```
-(No additional commands are necessary)
-```
-Sender side (agl-demo-platform)
-```
-$run_demo_remote
-```
+- **Sender side (agl-image-weston)**
+    ```
+    $ run_demo_remote_weston <IP address of Receiver>
+    ```
+
+After executing these steps, the weston screen launched in agl-image-weston will be transferred and displayed on the agl-demo-platform via rvgpu-proxy and rvgpu-renderer. You can then launch graphical applications such as `$ glmark2-es2-wayland` to verify that everything is working properly.
+
+### Sender: agl-demo-platform *vs* Receiver: agl-image-weston
+
+- **Receiver side (agl-image-weston)**  
+    Please use commands like 'ifconfig' to find out Receiver's IP address, which will be used to specify the sender's IP address.
+
+
+- **Sender side (agl-demo-platform)**
+    ```
+    $ run_demo_remote_agl <IP address of Receiver>
+    ```
+After executing these steps, the homescreen app launched in agl-demo-weston will be transferred and displayed on the agl-image-weston.
