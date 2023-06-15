@@ -25,7 +25,7 @@ For detailed environment setup instructions for each platform, please refer to t
 [Building for Supported Renesas Boards](https://docs.automotivelinux.org/en/master/#01_Getting_Started/02_Building_AGL_Image/09_Building_for_Supported_Renesas_Boards/)
 
 ## How to run RVGPU remotely
-In this guide, we will discuss the process of transferring commands between agl-image-weston and agl-demo-platform, with each platform acting as both Sender and Receiver.
+This section discusses the various scenarios for using 'agl-image-weston' and 'agl-demo-platform' in both sender and receiver roles.
    
 ### Sender: agl-image-weston Receiver: agl-demo-platform
 
