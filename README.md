@@ -20,8 +20,7 @@ Yocto recipes to introduce UnifiedHMI software.
 
 
 ## How to build
-This guide explains how to run RVGPU on the agl-demo-platform and core-image-weston as a sender or receiver.Therefore, this guide will cover the build methods for both agl-demo-platform and core-image-weston.
-### How to build
+This guide explains how to run RVGPU on the agl-demo-platform and core-image-weston as a sender or receiver.Therefore, this guide will cover the build methods for both agl-demo-platform and core-image-weston.  
 Please follow the [AGL documentation](https://docs.automotivelinux.org/en/master/#01_Getting_Started/02_Building_AGL_Image/01_Build_Process_Overview/) for the build process, and set up the "[Initializing Your Build Environment](https://docs.automotivelinux.org/en/master/#01_Getting_Started/02_Building_AGL_Image/04_Initializing_Your_Build_Environment/)" section as described below to enable the AGL feature 'agl-rvgpu'.For example:
 ```
 $ cd $AGL_TOP/master
