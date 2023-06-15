@@ -36,8 +36,10 @@ $ rvgpu-renderer -b 1280x720@0,0 -p 55667 &
 ```
 Sender side (agl-image-weston)
 ```
-$ rvgpu-proxy -s 1280x720@0,0 -n 192.168.0.130:55667 &
+$ rvgpu-proxy -s 1280x720@0,0 -n <IP address of Receiver>:55667 &
 $ export LD_LIBRARY_PATH=/usr/lib/mesa-virtio
 $ weston --backend drm-backend.so --tty=2 --seat=seat_virtual -i 0 &
 ```
+Please replace <IP adress of Receiver> with the actual IP address of the Receiver.(For example: 192.168.0.130)
+  
 After executing these steps, the weston screen launched in agl-image-weston will be transferred and displayed on the agl-demo-platform via rvgpu-proxy and rvgpu-renderer. You can then launch graphical applications such as `$ glmark2-es2-wayland` to verify that everything is working properly.
