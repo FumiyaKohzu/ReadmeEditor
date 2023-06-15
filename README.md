@@ -18,7 +18,7 @@ meta-uhmi-\
 Yocto recipes to introduce UnifiedHMI software.
 
 ## How to build
-The AGL feature `agl-rvgpu` needs to be enabled. This can be done when including `aglsetup.sh`, for example:
+Please follow the [AGL documentation](https://docs.automotivelinux.org/en/master/#01_Getting_Started/02_Building_AGL_Image/01_Build_Process_Overview/) for the build process, and set up the "Initializing Your Build Environment" section as described below to enable the AGL feature 'agl-rvgpu'.For example:
 ```
 $ cd $AGL_TOP/master
 $ source ./meta-agl/scripts/aglsetup.sh -f \
