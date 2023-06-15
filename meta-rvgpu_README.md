@@ -29,8 +29,8 @@ For detailed environment setup instructions for each platform, please refer to t
 ## How to run RVGPU remotely
 In this guide, we will discuss the process of transferring commands between agl-image-weston and agl-demo-platform, with each platform acting as both Sender and Receiver.
    
-### Sender: agl-image-weston 
-### Receiver: agl-demo-platform
+#### Sender: agl-image-weston 
+#### Receiver: agl-demo-platform
 
 Receiver side (agl-demo-platform)
 ```
