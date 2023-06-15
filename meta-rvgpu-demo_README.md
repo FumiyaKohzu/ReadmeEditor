@@ -30,24 +30,24 @@ In this guide, we will discuss the process of transferring commands between agl-
 ### Sender: agl-image-weston Receiver: agl-demo-platform
 
 - **Receiver side (agl-demo-platform)**  
-    Please use commands like 'ifconfig' to find out Receiver's IP address, which will be used to specify the sender's IP address.
+Please use commands like 'ifconfig' to find out Receiver's IP address, which will be used to specify the sender's IP address.
 
 
 - **Sender side (agl-image-weston)**
-    ```
-    $ run_demo_remote_weston <IP address of Receiver>
-    ```
+```
+$ run_demo_remote_weston <IP address of Receiver>
+```
 
 After executing these steps, the weston screen launched in agl-image-weston will be transferred and displayed on the agl-demo-platform via rvgpu-proxy and rvgpu-renderer. You can then launch graphical applications such as `$ glmark2-es2-wayland` to verify that everything is working properly.
 
 ### Sender: agl-demo-platform *vs* Receiver: agl-image-weston
 
 - **Receiver side (agl-image-weston)**  
-    Please use commands like 'ifconfig' to find out Receiver's IP address, which will be used to specify the sender's IP address.
+Please use commands like 'ifconfig' to find out Receiver's IP address, which will be used to specify the sender's IP address.
 
 
 - **Sender side (agl-demo-platform)**
-    ```
-    $ run_demo_remote_agl <IP address of Receiver>
-    ```
+```
+$ run_demo_remote_agl <IP address of Receiver>
+```
 After executing these steps, the homescreen app launched in agl-demo-weston will be transferred and displayed on the agl-image-weston.
