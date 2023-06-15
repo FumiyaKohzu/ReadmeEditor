@@ -15,5 +15,5 @@ The Yocto layers related to UnifiedHMI are as follow:
 ```
 meta-uhmi-\
           |-meta-rvgpu
-          |-meta-uhmi-demo
+          |-meta-rvgpu-demo
 ```
