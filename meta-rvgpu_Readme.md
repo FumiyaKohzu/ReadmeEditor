@@ -15,11 +15,11 @@ $ source ./meta-agl/scripts/aglsetup.sh -f \
 ```
 After adding the feature, to build agl-demo-platform, execute the command:
 ```
-$bitbake agl-demo-platform
+$ bitbake agl-demo-platform
 ```
 To build agl-image-weston, execute the command:
 ```
-$bitbake agl-image-weston
+$ bitbake agl-image-weston
 ```
 For detailed environment setup instructions for each platform, please refer to the following link in the AGL Documentation.  
 [Building for x86(Emulation and Hardware)](https://docs.automotivelinux.org/en/master/#01_Getting_Started/02_Building_AGL_Image/07_Building_for_x86_%28Emulation_and_Hardware%29/)  
@@ -34,13 +34,13 @@ In this guide, we will discuss the process of transferring commands between agl-
 
 Receiver side (agl-demo-platform)
 ```
-$export XDG_RUNTIME_DIR=/run/user/1001
-$rvgpu-renderer -b 1280x720@0,0 -p 55667 &
+$ export XDG_RUNTIME_DIR=/run/user/1001
+$ rvgpu-renderer -b 1280x720@0,0 -p 55667 &
 ```
 Sender side (agl-image-weston)
 ```
-$rvgpu-proxy -s 1280x720@0,0 -n 192.168.0.130:55667 &
-$export LD_LIBRARY_PATH=/usr/lib/mesa-virtio
-$weston --backend drm-backend.so --tty=2 --seat=seat_virtual -i 0 &
+$ rvgpu-proxy -s 1280x720@0,0 -n 192.168.0.130:55667 &
+$ export LD_LIBRARY_PATH=/usr/lib/mesa-virtio
+$ weston --backend drm-backend.so --tty=2 --seat=seat_virtual -i 0 &
 ```
-After executing these steps, the weston screen launched in agl-image-weston will be transferred and displayed on the agl-demo-platform via rvgpu-proxy and rvgpu-renderer. You can then launch graphical applications such as `$glmark2-es2-wayland` to verify that everything is working properly.
+After executing these steps, the weston screen launched in agl-image-weston will be transferred and displayed on the agl-demo-platform via rvgpu-proxy and rvgpu-renderer. You can then launch graphical applications such as `$ glmark2-es2-wayland` to verify that everything is working properly.
