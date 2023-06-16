@@ -1,5 +1,5 @@
 ## Remote Virtio GPU Device Demo support layer(meta-rvgpu-demo)
-This updated version of meta-rvgpu includes demo scripts, making it easy to test RVGPU command transfers. For build instructions and testing methods, please refer to the README.md file in the meta-rvgpu-demo directory.
+This updated version of meta-rvgpu includes demo scripts, making it easy to test RVGPU command transfers. 
 
 ## How to build
 This guide explains how to run RVGPU on the agl-demo-platform and agl-image-weston as a sender or receiver.Therefore, this guide will cover the build methods for both agl-demo-platform and agl-image-weston.  
