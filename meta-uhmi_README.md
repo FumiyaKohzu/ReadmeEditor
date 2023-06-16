@@ -4,7 +4,7 @@
 ## Remote Virtio GPU Device support layer(meta-rvgpu)
 Remote Virtio GPU Device (RVGPU) is a client-server based rendering engine, which allows to render 3D on one device (client) and display it via network on another device (server). For build instructions and testing methods, please refer to the README.md file in the meta-rvgpu directory.
 RVGPU is OSS. For more details, please visit the following URL:  
-https://github.com/Panasonic-Automotive/remote-virtio-gpu
+https://github.com/unified-hmi/remote-virtio-gpu
 
 ## Remote Virtio GPU Device Demo support layer(meta-rvgpu-demo)
 This updated version of meta-rvgpu includes demo scripts, making it easy to test RVGPU command transfers. For build instructions and testing methods, please refer to the README.md file in the meta-rvgpu-demo directory.
