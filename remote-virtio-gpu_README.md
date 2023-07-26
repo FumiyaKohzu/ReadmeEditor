@@ -75,10 +75,19 @@ following steps:
   meson build/
   ninja -C build/ install
   ```
+- Install remote-virtio-gpu-driver
 
+  ```
+  git clone ##############################
+  cd ~/remote-virtio-gpu-driver
+  mkdir build
+  cmake -B build -DCMAKE_BUILD_TYPE=Release
+  make -C build
+  sudo make install -C build
+  ```
+  
 - Install remote-virtio-gpu  
-**Note:** You need to install the **remote-virtio-gpu-driver** in advance. Please refer to the URL below for installation instructions.  
-  URL: **TODO**
+**Note:** You need to install the remote-virtio-gpu-driver in advance. Follow the steps in the "install remote-virtio-gpu-driver" section mentioned above.
   ```
   cd ~/remote-virtio-gpu
   mkdir build
@@ -110,7 +119,7 @@ following steps:
 
 To use **remote-virtio-gpu**, you need to load the kernel modules **virtio-gpu** and **virtio_lo**, so turn **Secure Boot** off.
 
-**rvgpu-renderer** creates a Wayland backend to display the stream, rendered by **rvgpu-proxy**. Therefore on login screen, please choose [Wayland](https://linuxconfig.org/how-to-enable-disable-wayland-on-ubuntu-20-04-desktop).
+**rvgpu-renderer** creates a Wayland backend to display the stream, rendered by **rvgpu-proxy**. Therefore on login screen, choose [Wayland](https://linuxconfig.org/how-to-enable-disable-wayland-on-ubuntu-20-04-desktop).
 
 Run both RVGPU client (**rvgpu-proxy**) and server (**rvgpu-renderer**) on the same machine via the localhost interface as follow:
 
