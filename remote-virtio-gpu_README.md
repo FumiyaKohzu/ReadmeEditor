@@ -37,10 +37,9 @@
 │    ├── rvgpu-renderer            # rvgpu-renderer header files
 ├── src
 │    ├── librvgpu                  # librvgpu source files
-│    ├── rvgpu-driver-linux        # rvgpu driver source files
 │    ├── rvgpu-proxy               # rvgpu-proxy source files
 │    ├── rvgpu-renderer            # rvgpu-renderer source files
-│    ├── rvgpu-sanity              # sanity module source files.
+│    ├── rvgpu-sanity              # sanity module source files
 ```
 
 ## Build instructions
@@ -77,12 +76,13 @@ following steps:
   ninja -C build/ install
   ```
 
-- Install remote-virtio-gpu
-
+- Install remote-virtio-gpu  
+**Note:** You need to install the **remote-virtio-gpu-driver** in advance. Please refer to the URL below for installation instructions.  
+  URL: **TODO**
   ```
   cd ~/remote-virtio-gpu
   mkdir build
-  cmake -B build -DCMAKE_BUILD_TYPE=Release -DVIRTIO_LO_DIR={$remote-virtio-gpu-driver}/src/rvgpu-driver-linux
+  cmake -B build -DCMAKE_BUILD_TYPE=Release
   make -C build
   sudo make install -C build
   ```
