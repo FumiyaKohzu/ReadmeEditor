@@ -78,7 +78,7 @@ following steps:
 - Install remote-virtio-gpu-driver
 
   ```
-  git clone ##############################
+  git clone https://github.com/unified-hmi/remote-virtio-gpu-driver.git
   cd ~/remote-virtio-gpu-driver
   mkdir build
   cmake -B build -DCMAKE_BUILD_TYPE=Release
