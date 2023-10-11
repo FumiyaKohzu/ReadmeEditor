@@ -93,7 +93,7 @@ You have two options for installing Remote VIRTIO GPU: either build from source 
   sudo apt -f install
   ```
 
-  Alternatively you can just follow the build instructions from its repo's [README](https://github.com/unified-hmi/virtio-loopback-driver).  
+  Alternatively you can just follow the build instructions from Virtio loopback driver's [README](https://github.com/unified-hmi/virtio-loopback-driver).  
 
 
 - Install `remote-virtio-gpu` software
@@ -179,7 +179,7 @@ cd ~/weston-8.0.93/
 meson build/
 sudo ninja -C build/ install
 ```
-**Note:** "sudo apt install weston" provides Weston 8.0.0, but for RVGPU, use Weston 8.0.93 for correct initialization.  
+**Note:** `sudo apt install weston` provides Weston 8.0.0, but for RVGPU, use Weston 8.0.93 for correct initialization.  
 
 Run Weston-8.0.93
 ```
@@ -187,7 +187,7 @@ export XDG_RUNTIME_DIR=/tmp
 weston --backend drm-backend.so --tty=2 --seat=seat_virtual -i 0
 ```
 
-After that `rvgpu-renderer` will display _weston_ rendered and transferred
+After that `rvgpu-renderer` will display weston rendered and transferred
 via localhost by `rvgpu-proxy`. Now you can launch `glmark2-es2-wayland` or
 some other graphical application to verify that everything works.
 
