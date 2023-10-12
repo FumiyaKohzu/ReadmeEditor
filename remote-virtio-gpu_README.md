@@ -1,17 +1,18 @@
-# Remote VIRTIO GPU
+# Remote VIRTIO GPU (RVGPU)
 
-> Remote VIRTIO GPU is a client-server based rendering engine,
+> Remote VIRTIO GPU (RVGPU) is a client-server based rendering engine,
 > which allows to render 3D on one device (client) and display it via network
 > on another device (server)
 
 ## Contents
 
-- [Remote VIRTIO GPU](#remote-virtio-gpu)
+- [Remote VIRTIO GPU (RVGPU)](#remote-virtio-gpu-rvgpu)
   - [Contents](#contents)
   - [Repository structure](#repository-structure)
-  - [How to install](#how-to-install)
+  - [How to install RVGPU](#how-to-install-rvgpu)
     - [Building from Source](#building-from-source)
-    - [Binary-only Install](#building-from-source)
+    - [Binary-only Install](#binary-only-install)
+  - [How to install Virtio-loopback-driver](#how-to-install-virtio-loopback-driver)
   - [Run RVGPU](#run-rvgpu)
     - [Run `rvgpu-renderer` on Wayland](#run-rvgpu-renderer-on-wayland)
     - [Run `rvgpu-proxy`](#run-rvgpu-proxy)
@@ -35,12 +36,12 @@
 │    ├── rvgpu-renderer            # rvgpu-renderer source files
 │    ├── rvgpu-sanity              # sanity module source files
 ```
-# How to install
+# How to install RVGPU
 
 The install instructions described here are tested on Ubuntu 20.04 LTS AMD64.
 However you can try it with different Linux distros with Wayland display
 server. Install a clean version of Ubuntu 20.04 and then follow the steps below.  
-You have two options for installing Remote VIRTIO GPU: either build from source code ([Building from Source](#building-from-source)) or install from a binary ([Binary-only Install](#building-from-source)).
+You have two options for installing RVGPU: either build from source code ([Building from Source](#building-from-source)) or install from a binary ([Binary-only Install](#building-from-source)).
 
 ## Building from Source
 
@@ -79,28 +80,12 @@ You have two options for installing Remote VIRTIO GPU: either build from source 
 
 ## Binary-only Install
 
-- Install `Virtio-loopback driver` kernel module
-
-  Download the `virtio-lo-dkms_X.X.X_amd64.deb`
-  [DKMS](https://en.wikipedia.org/wiki/Dynamic_Kernel_Module_Support)
-  ubuntu package from the latest release builds from its github repository and install it.  
-  Specify the correct version of `X.X.X` by referring to https://github.com/unified-hmi/virtio-loopback-driver/releases/latest, for example: `virtio-lo-dkms_1.0.0_amd64.deb`.  
- **Note:** An error about unresolved dependencies will occur when executing the following 2nd command, `sudo dpkg -i virtio-lo-dkms_X.X.X_amd64.deb`. This error can be resolved by running the 3rd one, `sudo apt -f install`.
-
-  ```
-  wget https://github.com/unified-hmi/virtio-loopback-driver/releases/latest/download/virtio-lo-dkms_X.X.X_amd64.deb
-  sudo dpkg -i virtio-lo-dkms_X.X.X_amd64.deb
-  sudo apt -f install
-  ```
-
-  Alternatively you can just follow the build instructions from its repo's [README](https://github.com/unified-hmi/virtio-loopback-driver).  
-
-
 - Install `remote-virtio-gpu` software
 
   Download the `remote-virtio-gpu_X.X.X.deb` ubuntu package from the latest
   release builds from this github repository and install it.  
   Specify the correct version of `X.X.X` by referring to https://github.com/unified-hmi/remote-virtio-gpu/releases/latest, for example: `remote-virtio-gpu_1.0.0.deb`.  
+
   **Note:** An error about unresolved dependencies will occur when executing the following 2nd command, `sudo dpkg -i remote-virtio-gpu_X.X.X.deb`. This error can be resolved by running the 3rd one, `sudo apt -f install`.
 
   ```
@@ -108,6 +93,9 @@ You have two options for installing Remote VIRTIO GPU: either build from source 
   sudo dpkg -i remote-virtio-gpu_X.X.X.deb
   sudo apt -f install
   ```
+# How to install Virtio-loopback-driver
+When using RVGPU, this module is also necessary.  
+For instructions on how to install Virtio-loopback-driver, please refer to the [README](https://github.com/unified-hmi/virtio-loopback-driver).
 
 # Run RVGPU
 
@@ -159,6 +147,10 @@ modprobe virtio-gpu
 modprobe virtio-lo
 rvgpu-proxy -s 1280x720@0,0 -n 127.0.0.1:55667
 ```
+**Note:** Those who have performed "Building from source" please follow the instructions below.
+```
+rvgpu-proxy -s 1280x720@0,0 -n 127.0.0.1:55667 -c /usr/local/etc/virgl.capset
+```
 
 After you run this, another GPU node `/dev/dri/cardX` appear.
 Also, if you are running `rvgpu-renderer` in Wayland mode, it create 
@@ -178,6 +170,7 @@ tar -xf weston-8.0.93.tar.xz
 cd ~/weston-8.0.93/
 meson build/
 sudo ninja -C build/ install
+sudo ldconfig
 ```
 **Note:** "sudo apt install weston" provides Weston 8.0.0, but for RVGPU, use Weston 8.0.93 for correct initialization.  
 
@@ -190,6 +183,10 @@ weston --backend drm-backend.so --tty=2 --seat=seat_virtual -i 0
 After that `rvgpu-renderer` will display _weston_ rendered and transferred
 via localhost by `rvgpu-proxy`. Now you can launch `glmark2-es2-wayland` or
 some other graphical application to verify that everything works.
+```
+sudo apt install glmark2-es2-wayland
+glmark2-es2-wayland
+```
 
 ## VSYNC feature
 
