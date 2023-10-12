@@ -79,7 +79,6 @@ You have two options for installing RVGPU: either build from source code ([Build
     ```
 
 ## Binary-only Install
-
 - Install `remote-virtio-gpu` software
 
   Download the `remote-virtio-gpu_X.X.X.deb` ubuntu package from the latest
