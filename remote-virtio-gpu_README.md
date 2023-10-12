@@ -72,15 +72,13 @@ You have two options for installing RVGPU: either build from source code ([Build
 
     ```
     git clone https://github.com/unified-hmi/remote-virtio-gpu.git
-    cd ~/remote-virtio-gpu
+    cd ./remote-virtio-gpu
     cmake -B build -DCMAKE_BUILD_TYPE=Release
     make -C build
     sudo make install -C build
     ```
 
 ## Binary-only Install
-- Install `remote-virtio-gpu` software
-
   Download the `remote-virtio-gpu_X.X.X.deb` ubuntu package from the latest
   release builds from this github repository and install it.  
   Specify the correct version of `X.X.X` by referring to https://github.com/unified-hmi/remote-virtio-gpu/releases/latest, for example: `remote-virtio-gpu_1.0.0.deb`.  
@@ -113,7 +111,7 @@ To make this work, you can choose from [Using Ubuntu on Wayland](#using-ubuntu-o
 
 
 ### Using Ubuntu on Wayland
-Select ['Ubuntu on Wayland'](https://linuxconfig.org/how-to-enable-disable-wayland-on-ubuntu-20-04-desktop) at the login screen.
+Select [Ubuntu on Wayland](https://linuxconfig.org/how-to-enable-disable-wayland-on-ubuntu-20-04-desktop) at the login screen.
 Open a terminal and run this command:
 
 ```
