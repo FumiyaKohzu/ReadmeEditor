@@ -109,7 +109,7 @@ To use RVGPU, you should be able to load the kernel, so turn **Secure Boot** off
 `rvgpu-renderer` with Wayland backend creates a window in the Wayland environment
 and renders into it.  So you should have a window system supporting Wayland protocol
 (such as Gnome with Wayland protocol or Weston) running.
-To make this work, you can choose from [Using Ubuntu on Wayland](#using-ubuntu-on-wayland) or [Using Ubuntu (default)](#using-ubuntudefault).
+To make this work, you can choose from [Using Ubuntu on Wayland](#using-ubuntu-on-wayland) or [Using Ubuntu (default)](#using-ubuntu-default).
 
 
 ### Using Ubuntu on Wayland
