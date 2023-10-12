@@ -41,7 +41,7 @@
 The install instructions described here are tested on Ubuntu 20.04 LTS AMD64.
 However you can try it with different Linux distros with Wayland display
 server. Install a clean version of Ubuntu 20.04 and then follow the steps below.  
-You have two options for installing RVGPU: either build from source code ([Building from Source](#building-from-source)) or install from a binary ([Binary-only Install](#building-from-source)).
+You have two options for installing RVGPU: either build from source code ([Building from Source](#building-from-source)) or install from a binary ([Binary-only Install](#binary-only-install)).
 
 ## Building from Source
 
