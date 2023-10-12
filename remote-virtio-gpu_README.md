@@ -54,7 +54,8 @@ You have two options for installing RVGPU: either build from source code ([Build
 - Install the header for `virtio-loopback-driver`.  
 
   Download the `virtio-lo-dev_X.X.X.deb` development ubuntu package from the latest release builds from its github repository and install it.  
-  Specify the correct version of `X.X.X` by referring to https://github.com/unified-hmi/virtio-loopback-driver/releases/latest, for example: `virtio-lo-dev_1.0.0.deb`.  
+  Specify the correct version of `X.X.X` by referring to https://github.com/unified-hmi/virtio-loopback-driver/releases/latest  
+  For example: `virtio-lo-dev_1.0.0.deb`.  
 
   ```
   wget https://github.com/unified-hmi/virtio-loopback-driver/releases/latest/download/virtio-lo-dev_X.X.X.deb
@@ -81,7 +82,8 @@ You have two options for installing RVGPU: either build from source code ([Build
 ## Binary-only Install
   Download the `remote-virtio-gpu_X.X.X.deb` ubuntu package from the latest
   release builds from this github repository and install it.  
-  Specify the correct version of `X.X.X` by referring to https://github.com/unified-hmi/remote-virtio-gpu/releases/latest, for example: `remote-virtio-gpu_1.0.0.deb`.  
+  Specify the correct version of `X.X.X` by referring to https://github.com/unified-hmi/remote-virtio-gpu/releases/latest  
+  For example: `remote-virtio-gpu_1.0.0.deb`.  
 
   **Note:** An error about unresolved dependencies will occur when executing the following 2nd command, `sudo dpkg -i remote-virtio-gpu_X.X.X.deb`. This error can be resolved by running the 3rd one, `sudo apt -f install`.
 
