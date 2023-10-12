@@ -79,27 +79,6 @@ You have two options for installing RVGPU: either build from source code ([Build
     ```
 
 ## Binary-only Install
-
-<<<<<<< HEAD
-=======
-- Install `Virtio-loopback driver` kernel module
-
-  Download the `virtio-lo-dkms_X.X.X_amd64.deb`
-  [DKMS](https://en.wikipedia.org/wiki/Dynamic_Kernel_Module_Support)
-  ubuntu package from the latest release builds from its github repository and install it.  
-  Specify the correct version of `X.X.X` by referring to https://github.com/unified-hmi/virtio-loopback-driver/releases/latest, for example: `virtio-lo-dkms_1.0.0_amd64.deb`.  
- **Note:** An error about unresolved dependencies will occur when executing the following 2nd command, `sudo dpkg -i virtio-lo-dkms_X.X.X_amd64.deb`. This error can be resolved by running the 3rd one, `sudo apt -f install`.
-
-  ```
-  wget https://github.com/unified-hmi/virtio-loopback-driver/releases/latest/download/virtio-lo-dkms_X.X.X_amd64.deb
-  sudo dpkg -i virtio-lo-dkms_X.X.X_amd64.deb
-  sudo apt -f install
-  ```
-
-  Alternatively you can just follow the build instructions from Virtio loopback driver's [README](https://github.com/unified-hmi/virtio-loopback-driver).  
-
-
->>>>>>> 28548a7063decb48251ed22676aa8b9d6ce3ab64
 - Install `remote-virtio-gpu` software
 
   Download the `remote-virtio-gpu_X.X.X.deb` ubuntu package from the latest
