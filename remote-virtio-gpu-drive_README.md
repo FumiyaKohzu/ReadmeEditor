@@ -38,8 +38,7 @@ make -C "/lib/modules/$(uname -r)/build" M="$(pwd)" clean
  **Note:** An error about unresolved dependencies will occur when executing the following 2nd command, `sudo dpkg -i virtio-lo-dkms_X.X.X_amd64.deb`. This error can be resolved by running the 3rd one, `sudo apt -f install`.
 
   ```
-  wget https://github.com/unified-hmi/virtio-loopback-driver/releases/latest/download/virtio-lo-dkms_X.X.X_amd64.deb
-
+  wget https://github.com/unified-hmi/virtio-loopback-driver/releases/latest/download/virtio-lo-dkms_X.X.X_amd64.deb 
   sudo dpkg -i virtio-lo-dkms_X.X.X_amd64.deb
   sudo apt -f install
   ```
