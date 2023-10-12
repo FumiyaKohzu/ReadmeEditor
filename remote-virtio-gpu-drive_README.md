@@ -15,6 +15,8 @@ You have two options for installing Virtio-loopback-driver: either build from so
 Use this command to build the kernel module:
 
 ```
+git clone https://github.com/unified-hmi/virtio-loopback-driver.git
+cd ./virtio-loopback-driver
 make -C "/lib/modules/$(uname -r)/build" M="$(pwd)" modules
 sudo cp virtio-lo.ko /lib/modules/$(uname -r)/kernel/drivers/ 
 sudo depmod
@@ -30,7 +32,8 @@ make -C "/lib/modules/$(uname -r)/build" M="$(pwd)" clean
   Download the `virtio-lo-dkms_X.X.X_amd64.deb`
   [DKMS](https://en.wikipedia.org/wiki/Dynamic_Kernel_Module_Support)
   ubuntu package from the latest release builds from its github repository and install it.
-  Specify the correct version of `X.X.X` by referring to https://github.com/unified-hmi/virtio-loopback-driver/releases/latest, for example: `virtio-lo-dkms_1.0.0_amd64.deb`.  
+  Specify the correct version of `X.X.X` by referring to https://github.com/unified-hmi/virtio-loopback-driver/releases/latest  
+  For example: `virtio-lo-dkms_1.0.0_amd64.deb`.  
 
  **Note:** An error about unresolved dependencies will occur when executing the following 2nd command, `sudo dpkg -i virtio-lo-dkms_X.X.X_amd64.deb`. This error can be resolved by running the 3rd one, `sudo apt -f install`.
 
